@@ -10,11 +10,14 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 body {
     display: flex;
+    background-image:
+    radial-gradient(circle at center, rgb(0,0,0,0), black),
+    url(/images/menu/computer.gif);
     align-items: center;
     justify-content: center;
     background-color: black;
