@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/design/icon.png">
+    <title>Store</title>
+    <style>
+        aside {
+            flex-grow: 1;
+            height: 90vh;
+        }
+        
+        #left {width: max(300px, 5vh);}
+        #right {width: 95vh; align-items: center;}
+        section {width: auto;}
+        h1, p {margin: 0; width: 100%;}
+    </style> 
+</head>
+<body>
+    <aside id="left">
+        <section>
+            <h1>Store</h1>
+            <p>You can get new theme.</p>
+            <p>Your score <span id="money">0</span>$</p>
+        </section>
+    </aside>
+    <aside id="right">
+
+    </aside>
+    <script>
+        async function getPrices() {
+            const response = await fetch('/theme/prices.json');
+            const data = await response.json();
+            console.log(data)
+            Object.keys(data).forEach(element => {
+                let aside = document.querySelector('#left')
+                let button = document.createElement('button')
+                button.textContent = `${element} - ${data[element]}$`
+                aside.appendChild(button)
+                button.addEventListener('click', function(){
+                    let all = document.querySelectorAll('#left button')
+                    all.forEach(element => element.classList.remove('active'))
+                    button.classList.toggle('active')
+                    let menu = document.querySelector('#right')
+                    menu.innerHTML = `
+                    <section>
+                    <img src="/theme/${element}.gif" alt="${element}">
+                    <button>${element}
+                    </section>
+                    `
+                })
+            });
+        }
+        getPrices()
+    </script>
+
+</body>
+</html>

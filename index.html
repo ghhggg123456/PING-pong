@@ -9,10 +9,8 @@
 </head>
 <body>
     <main>
-            <section>
-                <h1>PING-pong</h1>
-                <p>Your score: <span id="money">100</span>$</p>
-            </section>
+            <h1>PING-pong</h1>
+            <p>Your score: <span id="money">100</span>$</p>
             <button id="play">Play</button>
             <button id="store">Store</button>
             <button id="exit">Exit</button>
@@ -23,8 +21,8 @@
         const play = document.getElementById('play');
         const store = document.getElementById('store');
         const exit = document.getElementById('exit');
-        play.addEventListener('click', function(){window.location.replace('pages/game.html'); })
-        store.addEventListener('click', function(){window.location.replace('pages/store.html')})
+        play.addEventListener('click', function(){window.location.replace('/game.html'); })
+        store.addEventListener('click', function(){window.location.replace('/store.html')})
         exit.addEventListener('click', function(){window.close()})
     </script>
 </body>

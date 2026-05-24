@@ -1,23 +1,26 @@
 @font-face {
     font-family: 'Consolas';
-    src: url('design/consolas.ttf') format('ttf');
+    src: url('/spec/consolas.ttf') format('truetype');
+    font-size: 5vh;
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
+* {font-family: 'Consolas';}
+
 
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: visible;
+    overflow: hidden;
 }
 
-body {
+body {    
     display: flex;
     background-image:
     radial-gradient(circle at center, rgb(0,0,0,0), black),
-    url(/images/menu/computer.gif);
+    url(/theme/computer.gif);
     align-items: center;
     justify-content: center;
     background-color: black;
@@ -27,30 +30,52 @@ body {
     background-size: auto 100%;
 }
 
-main, section {
+img {
+    object-fit: contain;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-style: groove;
+    border-color: white;
+    width: 70%;
+    height: 70%;
+}
+
+main, section, aside {
+    background-color: rgb(0,0,0,0.9);
+    color: white;
+    margin: 1vh;
+    padding: 2vh;
+    border-color: white;
+    border-style: groove;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     height: max-content;
-    width: max-content
+    width: max-content;
 }
 
-section, button {
+button, article {
     box-sizing: border-box;
-    margin: 5px;
-    padding: 10px;
+    margin: 1vh;
+    padding: 1vh;
     background-color: black;
     color: white;
-    font-family: 'Consolas';
-    width: 60vh;
     text-align: center;
     border-style: groove;
     border-color: white;
 }
 
-button:hover {
+button:hover, .active {
     background-color: white;
     color:black;
+}
+
+[disabled] {
+    color: gray
 }
