@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('design/consolas.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: 50%;
+    background-size: auto 100%;
+}
+
+main, section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    height: max-content;
+    width: max-content
+}
+
+section, button {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-family: 'Consolas';
+    width: 60vh;
+    text-align: center;
+    border-style: groove;
+    border-color: white;
+}
+
+button:hover {
+    background-color: white;
+    color:black;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="/design/icon.png">
+    <title>Ping-Pong</title>
+    <style>
+        div {
+            background-color: rgb(255, 255, 255);
+            margin: 5vh;
+            height: 10vh;
+            width: 1vh;
+            position: absolute;
+            top: 50vh;
+            left: 50vh;
+        }
+
+        div #field {
+            box-sizing: border-box;
+            margin: 5px;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            font-family: 'Consolas';
+            width: 60vh;
+            text-align: center;
+            border-style: groove;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let speed = 20
+        const plate = document.createElement('div')
+        plate.style.left = '200px'
+        const body = document.createElement('div')
+        body.setAttribute('id', 'field')
+        body.appendChild(plate)
+        document.addEventListener('keydown', function(event) {
+            if (event.code=='ArrowUp') {
+                event.preventDefault()
+                plate.style.top = (parseInt(getComputedStyle(plate).top))-speed+'px'
+            }
+            if (event.code=='ArrowDown') {
+                console.log(window.innerHeight)
+                console.log(parseInt(getComputedStyle(plate).top))
+                event.preventDefault()
+                plate.style.top = (parseInt(getComputedStyle(plate).top))+speed+'px'
+            }
+        })
+    </script>
+</body>
+</html>
