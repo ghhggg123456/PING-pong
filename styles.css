@@ -8,7 +8,6 @@
 }
 * {font-family: 'Consolas';}
 
-
 html, body {
     height: 100%;
     margin: 0;
@@ -16,66 +15,61 @@ html, body {
     overflow: hidden;
 }
 
-body {    
-    display: flex;
-    background-image:
-    radial-gradient(circle at center, rgb(0,0,0,0), black),
-    url(/theme/computer.gif);
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    background-position: 50%;
-    background-size: auto 100%;
-}
-
-img {
-    object-fit: contain;
+header, main, footer, section, aside, article {
     box-sizing: border-box;
-    margin: 5px;
-    padding: 20px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border-style: groove;
-    border-color: white;
-    width: 70%;
-    height: 70%;
-}
-
-main, section, aside {
     background-color: rgb(0,0,0,0.9);
     color: white;
+    border-color: white;
+    border-style: groove;
+
     margin: 1vh;
     padding: 2vh;
-    border-color: white;
-    border-style: groove;
+
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
-    height: max-content;
-    width: max-content;
+    align-items: stretch;
+    justify-items: center;
 }
 
-button, article {
+button {
     box-sizing: border-box;
-    margin: 1vh;
-    padding: 1vh;
     background-color: black;
     color: white;
-    text-align: center;
-    border-style: groove;
     border-color: white;
+    border-style: groove;
+
+    margin: 1vh;
+    padding: 2vh;
+
+    text-align: center;
 }
 
-button:hover, .active {
+button:hover, .selected {
     background-color: white;
     color:black;
 }
 
-[disabled] {
-    color: gray
+button[disabled] {
+    background-color: darkgrey;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 1.5vh;
+    height: 1.5vh;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+    border-color: white;
+    border-radius: 0vh;
+}
+
+::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: white;
 }

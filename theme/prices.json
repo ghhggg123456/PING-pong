@@ -1,7 +1,18 @@
 {
     "computer": 10,
+    "train": 15,
+    "earth": 15,
     "neo": 20,
+    "terminal": 20,
+    "dna": 25,
+    "spiral": 25,
+    "evangelion": 25,
+    "backrooms": 25,
     "numbers": 30,
+    "virus": 30,
+    "black hole": 30,
+    "girl": 35,
     "psychodel": 40,
-    "break": 50
+    "break": 40,
+    "alien": 50
 }
