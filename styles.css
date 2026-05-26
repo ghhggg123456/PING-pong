@@ -49,9 +49,9 @@ button:hover, .selected {
     color:black;
 }
 
-button[disabled] {
-    background-color: darkgrey;
-    color: white;
+button[disabled]:hover {
+    background-color: rgb(28, 28, 28);
+    color: rgb(205, 205, 205);
 }
 
 ::-webkit-scrollbar {
