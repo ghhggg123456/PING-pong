@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-]<head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
@@ -67,66 +67,11 @@
         const score = localStorage.getItem('score')
         leave.addEventListener('click', function(){window.location.replace('/index.html')})
 
-        async function main() {
+        async function getList() {
             const response = await fetch('/theme/prices.json');
             const prices = await response.json();
             const list = {};
-            Object.keys(prices).forEach((key, index) => {
-                const body = document.querySelector('main')
-                const button = document.createElement('button')
-                body.appendChild(button)
-                button.innerHTML = `${key} - ${prices[key]}$`
-                if (localStorage.getItem('list')==null) {
-                    list[key] = false
-                    localStorage.setItem('list', JSON.stringify(list))
-                }
-                let json = JSON.parse(localStorage.getItem('list'))
-                
-                button.addEventListener('click', function(){
-                    const buttons = body.querySelectorAll('button')
-                    buttons.forEach(b => b.classList.remove('selected'))
-                    button.classList.toggle('selected')
-
-                    const menu = document.getElementById('menu')
-                    const img = document.createElement('img')
-                    const app = document.createElement('button')
-
-                    menu.replaceChildren()
-                    img.setAttribute('src', `/theme/${key}.gif`)
-                    img.setAttribute('alt', key)
-                    
-                    app.setAttribute('id', 'app')
-
-                    function innerDuck() {
-                        if (json[key]==false) {
-                            app.textContent = `Buy - ${prices[key]}$`
-                            if (parseInt(prices[key])>score) {app.setAttribute('disabled','')} else {
-                                app.addEventListener('click', function() {
-                                    localStorage.setItem('score', parseInt(localStorage.getItem('score'))-prices[key])
-                                    json[key] = true;
-                                    localStorage.setItem('list', JSON.stringify(json))
-                                })
-                            }
-                        } else {
-                            app.textContent = `Apply`
-                            app.addEventListener('click', function() {
-                                localStorage.setItem('theme', key)
-                            })
-                        }
-                    }
-                    setInterval(innerDuck, 100)
-
-
-                    menu.appendChild(img)
-                    menu.appendChild(document.createElement('br'))
-                    menu.appendChild(app)
-                    
-yayaya
-                })
-            })
-        }
-        setInterval(main, 1000);
+        }  
     </script>
-
 </body>
 </html>

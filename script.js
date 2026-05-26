@@ -1,4 +1,4 @@
-function backgroundUpdate() {
+function background() {
     const theme = localStorage.getItem('theme');
     const body = document.querySelector('body');
     if (theme===null) {localStorage.setItem('theme', 'computer')} 
@@ -16,6 +16,18 @@ function backgroundUpdate() {
         background-size: auto 100%;}`
 };
 
+
+
+async function listUpdate() {
+    const response = await fetch('/theme/prices.json')
+    const prices = await response.json()
+    Object.keys(prices).forEach((element, index)=>{
+        console.log(`${element} - ${index} - ${prices[element]}`)
+        // REWRITE!!!!!!!!!!!!!!!!!!!
+    })
+    if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {} else {localStorage.setItem('theme', 'computer')}
+}
+
 function scoreUpdate() {
     const score = localStorage.getItem('score')
     const span = document.querySelector('span');
@@ -24,5 +36,16 @@ function scoreUpdate() {
     } else { localStorage.setItem('score', 0)}
 }
 
-setInterval(backgroundUpdate, 100)
+async function themeUpdate() {
+    const response = await fetch('/theme/prices.json')
+    const prices = await response.json()
+    if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {} else {localStorage.setItem('theme', 'computer')}
+}
+
+
+
+setInterval(background, 100)
+
+setInterval(listUpdate, 100)
 setInterval(scoreUpdate, 100)
+setInterval(themeUpdate, 100)
