@@ -16,16 +16,27 @@ function background() {
         background-size: auto 100%;}`
 };
 
-
-
 async function listUpdate() {
-    const response = await fetch('/theme/prices.json')
-    const prices = await response.json()
+    const response = await fetch('/theme/prices.json');
+    const prices = await response.json();
+    let list = {};
+    try {JSON.parse(localStorage.getItem('list'))} catch {initialize()}
+    if (localStorage.getItem('list')===null) {initialize()}
+    list = JSON.parse(localStorage.getItem('list'))
+
+    function initialize() {
+        Object.keys(prices).forEach((element, index)=>{
+        element=='computer' ? list[element] = true : list[element] = false;
+        })
+        localStorage.setItem('list', JSON.stringify(list))
+    }
+    
     Object.keys(prices).forEach((element, index)=>{
-        console.log(`${element} - ${index} - ${prices[element]}`)
-        // REWRITE!!!!!!!!!!!!!!!!!!!
+        l = Object.keys(list)
+        if (element !== l[index]) {
+        localStorage.setItem('list', list)
+        }
     })
-    if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {} else {localStorage.setItem('theme', 'computer')}
 }
 
 function scoreUpdate() {
@@ -39,10 +50,8 @@ function scoreUpdate() {
 async function themeUpdate() {
     const response = await fetch('/theme/prices.json')
     const prices = await response.json()
-    if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {} else {localStorage.setItem('theme', 'computer')}
+   if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {localStorage.setItem('theme', 'computer')}
 }
-
-
 
 setInterval(background, 100)
 

@@ -47,11 +47,16 @@ button {
 button:hover, .selected {
     background-color: white;
     color:black;
+    cursor: pointer;
 }
 
 button[disabled]:hover {
     background-color: rgb(28, 28, 28);
     color: rgb(205, 205, 205);
+}
+
+button[disabled]:active {
+    cursor: not-allowed;
 }
 
 ::-webkit-scrollbar {

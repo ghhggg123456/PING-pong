@@ -42,8 +42,8 @@
             justify-content: center;
             padding: 2vh;
         }
-        #app {
-            margin: 0% 0%;
+        #apply {
+            margin: 2vh 0% 0% 0%;
             text-align: center;
         }
     </style> 
@@ -67,11 +67,77 @@
         const score = localStorage.getItem('score')
         leave.addEventListener('click', function(){window.location.replace('/index.html')})
 
-        async function getList() {
+        async function getPrices() {
             const response = await fetch('/theme/prices.json');
             const prices = await response.json();
-            const list = {};
-        }  
+            return(prices)
+        }
+
+        function getList() {
+            const list = localStorage.getItem('list')
+            return list
+        }
+
+        function menu(targetName, targetPrice) {
+            let list = JSON.parse(getList());
+            const div = document.querySelector('div#menu')
+            
+
+            if (list[targetName]==true) {
+                div.innerHTML = `
+                <img src="/theme/${targetName}.gif" alt="${targetName}"></img>
+                <button id="apply">Apply</button>
+                `;
+            } else {
+                div.innerHTML = `
+                <img src="/theme/${targetName}.gif" alt="${targetName}"></img>
+                <button id="apply">Buy ${targetPrice}$</button>
+                `;
+                const btn = document.querySelector('div#menu>button');
+                if (targetPrice>parseInt(localStorage.getItem('score'))) {btn.setAttribute('disabled', '')} else {
+                    btn.addEventListener('click', function() {
+                        localStorage.setItem('score', parseInt(localStorage.getItem('score')-targetPrice))
+                        list[targetName] = true;
+                        localStorage.setItem('list', JSON.stringify(list))
+                        menu(targetName, targetPrice)
+                    })
+                }
+            }
+
+            const btn = document.querySelector('div#menu>button');
+
+            if (btn.textContent == 'Apply') {
+                btn.addEventListener('click', function() {
+                    localStorage.setItem('theme', targetName)
+                })
+            }
+        }
+
+        function main() {
+            getPrices().then(result => {
+                const prices = result;
+                const list = JSON.parse(getList());
+
+                const main = document.querySelector('main')
+
+                Object.keys(prices).forEach(element => {
+                    let button = document.createElement('button')
+                    button.textContent = `${element} - ${prices[element]}`
+                    button.addEventListener('click', function() {
+                        let buttons = document.querySelectorAll('main>button')
+                        buttons.forEach(button => {button.classList.remove('selected')})
+                        button.classList.toggle('selected')
+                        menu(element, prices[element])
+                    })
+                    main.appendChild(button)
+                })
+                
+                
+            });
+        }
+
+        main()
+        
     </script>
 </body>
 </html>
