@@ -85,12 +85,12 @@
 
             if (list[targetName]==true) {
                 div.innerHTML = `
-                <img src="/theme/${targetName}.gif" alt="${targetName}"></img>
+                <img src="./theme/${targetName}.gif" alt="${targetName}"></img>
                 <button id="apply">Apply</button>
                 `;
             } else {
                 div.innerHTML = `
-                <img src="/theme/${targetName}.gif" alt="${targetName}"></img>
+                <img src="./theme/${targetName}.gif" alt="${targetName}"></img>
                 <button id="apply">Buy ${targetPrice}$</button>
                 `;
                 const btn = document.querySelector('div#menu>button');
