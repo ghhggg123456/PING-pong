@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="/design/icon.png">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./design/icon.png">
     <title>Store</title>
     <style>
         img, #menu:has(*) {
@@ -61,11 +61,11 @@
     <aside id="right">
     <div id="menu"></div>
     </aside>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script>
         const leave = document.getElementById('leave')
         const score = localStorage.getItem('score')
-        leave.addEventListener('click', function(){window.location.replace('/index.html')})
+        leave.addEventListener('click', function(){window.location.replace('./index.html')})
 
         async function getPrices() {
             const response = await fetch('/theme/prices.json');

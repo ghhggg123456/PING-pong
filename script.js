@@ -17,7 +17,7 @@ function background() {
 };
 
 async function listUpdate() {
-    const response = await fetch('/theme/prices.json');
+    const response = await fetch('./theme/prices.json');
     const prices = await response.json();
     let list = {};
     try {JSON.parse(localStorage.getItem('list'))} catch {initialize()}
@@ -48,7 +48,7 @@ function scoreUpdate() {
 }
 
 async function themeUpdate() {
-    const response = await fetch('/theme/prices.json')
+    const response = await fetch('./theme/prices.json')
     const prices = await response.json()
    if (!Object.keys(prices).includes(localStorage.getItem('theme'))) {localStorage.setItem('theme', 'computer')}
 }

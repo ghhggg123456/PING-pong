@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="icon" href="/design/icon.png">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./spec/icon.png">
     <title>PING-pong</title>
     <style>
         main {
@@ -21,13 +21,13 @@
             <button id="store">Store</button>
             <button id="exit">Exit</button>
     </main>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script>
         const play = document.getElementById('play');
         const store = document.getElementById('store');
         const exit = document.getElementById('exit');
-        play.addEventListener('click', function(){window.location.replace('/game.html'); })
-        store.addEventListener('click', function(){window.location.replace('/store.html')})
+        play.addEventListener('click', function(){window.location.replace('./game.html'); })
+        store.addEventListener('click', function(){window.location.replace('./store.html')})
         exit.addEventListener('click', function(){window.close()})
     </script>
 </body>

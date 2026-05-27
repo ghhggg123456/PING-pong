@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/styles.css">
-        <link rel="icon" href="/design/icon.png">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="icon" href="./spec/icon.png">
         <title>Ping-Pong</title>
         <style>
             body {
@@ -66,10 +66,10 @@
             <div id="ball"></div>
         </div>
         <button>Finish (Score: <span>?</span>$)</button>
-        <script src="/script.js"></script>
+        <script src="./script.js"></script>
         <script>
             const finish = document.querySelector('button')
-            finish.addEventListener('click', function(){window.location.replace('/index.html')})
+            finish.addEventListener('click', function(){window.location.replace('./index.html')})
 
             const field = document.querySelector('#field');
             const plate = document.querySelector('#plate');
