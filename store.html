@@ -68,7 +68,7 @@
         leave.addEventListener('click', function(){window.location.replace('./index.html')})
 
         async function getPrices() {
-            const response = await fetch('/theme/prices.json');
+            const response = await fetch('./theme/prices.json');
             const prices = await response.json();
             return(prices)
         }
