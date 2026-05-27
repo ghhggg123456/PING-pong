@@ -6,7 +6,7 @@ function background() {
         display: flex;
         background-image:
         radial-gradient(circle at center, rgb(0,0,0,0), black),
-        url(/theme/${theme}.gif);
+        url(./theme/${theme}.gif);
         align-items: center;
         justify-content: center;
         background-color: black;
